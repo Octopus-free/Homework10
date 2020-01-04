@@ -43,7 +43,7 @@ for turn_number in range(1, 91):
     # запрашиваем выбор игрока о зачеркивании выпавшего бочонка на карточке
     for human_card in human_players_cards:
         player_number = human_players_cards.index(human_card) + 1
-        print_for_game.print_human_cards(player_number, human_card)
+        print(print_for_game.print_human_cards(player_number, human_card))
         strike_choice = input('Зачеркнуть номер? ')
         if strike_choice.lower() == 'да':
             card_after_check_yes = checks_for_game.strike_numbers_answer_yes(player_number, current_barrel, human_card)
@@ -54,11 +54,12 @@ for turn_number in range(1, 91):
                 human_players_cards[human_players_cards.index(human_card)] = card_after_check_yes
         else:
             card_after_check_no = checks_for_game.strike_numbers_answer_no(player_number, current_barrel, human_card)
-            print(card_after_check_no)
-            exit(0)
+            if card_after_check_no.find('Игрок') == 0:
+                print(card_after_check_no)
+                exit(0)
 
     # отрисовываем в терминале карточки игроков компьютеров и автоматически зачеркиваем выпавший бочонок
-    print_for_game.print_computers_cards(computers_players_cards)
+    print((print_for_game.print_computers_cards(computers_players_cards)))
     computers_players_cards = checks_for_game.strike_numbers_for_computers(current_barrel, computers_players_cards)
 
     # в конце хода проверяем карточки игроков на предмет всех зачеркнутых чисел (победы)

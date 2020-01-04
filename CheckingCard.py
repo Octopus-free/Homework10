@@ -47,10 +47,14 @@ class CheckingCard:
             if ' {} '.format(barrel_number) in player_card:
                 func_message = f'Игрок {player_number} проиграл, необходимо было зачеркнуть число, выпавшее на бочонке!'
                 return func_message
+            else:
+                return f'Зачеркнуто верно!'
         else:
             if f' {barrel_number}' in player_card:
                 func_message = f'Игрок {player_number} проиграл, необходимо было зачеркнуть число, выпавшее на бочонке!'
                 return func_message
+            else:
+                return f'Зачеркнуто верно!'
 
     # функция для автоматического зачеркичания выпавшего бочонка на карточке игрока компьютера
     def strike_numbers_for_computers(self, barrel_number, computers_players_cards):
