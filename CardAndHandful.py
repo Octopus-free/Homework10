@@ -69,24 +69,3 @@ class CardGeneration:
             self.three_row_card += '\n'
 
         return self.three_row_card[:-2]
-
-
-# создаем декоратор для карточки в виде тире
-def under_line(func):
-    def inner():
-        print('--'*13)
-        result = func()
-        print('--'*13)
-        return result
-    return inner
-
-
-@under_line
-def print_card():
-    init_class_card = CardGeneration()
-    card = init_class_card.create_card()
-    return card
-
-
-if __name__ == '__main__':
-    print_card()
